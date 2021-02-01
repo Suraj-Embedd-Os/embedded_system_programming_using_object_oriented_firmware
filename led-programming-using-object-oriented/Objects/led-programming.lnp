@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp
+--cpu=Cortex-M4.fp.sp
 ".\objects\led.o"
 ".\objects\main.o"
 ".\objects\usart.o"
