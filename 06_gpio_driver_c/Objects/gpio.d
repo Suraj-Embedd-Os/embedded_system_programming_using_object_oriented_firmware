@@ -1,0 +1,7 @@
+.\objects\gpio.o: gpio.c
+.\objects\gpio.o: gpio.h
+.\objects\gpio.o: stm32f4xx.h
+.\objects\gpio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gpio.o: rcc.h
+.\objects\gpio.o: stm32f4xx.h
+.\objects\gpio.o: gpio.h

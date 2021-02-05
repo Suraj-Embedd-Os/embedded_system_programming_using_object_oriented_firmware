@@ -1,0 +1,48 @@
+
+#ifndef __STM32F4XX_H
+#define __STM32F4XX_H
+#include	<stdint.h>
+#include "rcc.h"
+#include "gpio.h"
+
+
+#define PERIPH_BASE				 0x40000000
+#define AHB1PERIPH_BASE		(PERIPH_BASE+0x00020000)
+#define RCC_BASE					(AHB1PERIPH_BASE+0x00003800)
+
+/**GPIO PORT ADDRES**/
+#define GPIOA_OFFSET	0x000
+#define GPIOB_OFFSET	0x400
+#define GPIOC_OFFSET	0x800
+#define GPIOD_OFFSET	0xC00
+#define GPIOE_OFFSET	0x1000
+#define GPIOF_OFFSET	0x1400
+#define GPIOG_OFFSET	0x1800
+#define GPIOH_OFFSET	0x1C00
+#define GPIOA_BASE		(AHB1PERIPH_BASE+GPIOA_OFFSET)
+#define GPIOB_BASE		(AHB1PERIPH_BASE+GPIOB_OFFSET)
+#define GPIOC_BASE		(AHB1PERIPH_BASE+GPIOC_OFFSET)
+#define GPIOD_BASE		(AHB1PERIPH_BASE+GPIOD_OFFSET)
+#define GPIOE_BASE		(AHB1PERIPH_BASE+GPIOE_OFFSET)
+#define GPIOF_BASE		(AHB1PERIPH_BASE+GPIOF_OFFSET)
+#define GPIOG_BASE		(AHB1PERIPH_BASE+GPIOG_OFFSET)
+#define GPIOH_BASE		(AHB1PERIPH_BASE+GPIOH_OFFSET)
+
+
+#define RCC						((RCC_TypeDef *) RCC_BASE)
+#define GPIOA					((GPIO_typeDef *)GPIOA_BASE)
+#define GPIOB					((GPIO_typeDef *)GPIOB_BASE)
+#define GPIOC					((GPIO_typeDef *)GPIOC_BASE)
+#define GPIOD					((GPIO_typeDef *)GPIOD_BASE)
+#define GPIOE					((GPIO_typeDef *)GPIOE_BASE)
+#define GPIOF					((GPIO_typeDef *)GPIOF_BASE)
+#define GPIOG					((GPIO_typeDef *)GPIOG_BASE)
+#define GPIOH					((GPIO_typeDef *)GPIOH_BASE)
+
+
+
+
+
+#endif
+
+
