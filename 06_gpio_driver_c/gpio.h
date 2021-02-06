@@ -27,19 +27,25 @@
 #define				GPIO_MODER_MODE0		0x3
 #define   		GPIO_MODE						0x3
 #define       GPIO_PUPDR_PUPDR0		0x3
+#define       GPIO_SPEED_OSPEEDR0		0x3
 
 /********************gpio mode **************/	
-#define				GPIO_MODE_INPUT					0x00
-#define				GPIO_MODE_OUTPUT_PP			0x01
-#define				GPIO_MODE_AF_PP					0x02
-#define				GPIO_MODE_ANALOG				0x03
-
+#define				GPIO_MODE_INPUT					0x00U
+#define				GPIO_MODE_OUTPUT_PP			0x01U
+#define				GPIO_MODE_OUTPUT_OD			0x11U
+#define				GPIO_MODE_ANALOG				0x03U
+#define				GPIO_MODE_AF_PP					0x02U
+#define				GPIO_MODE_AF_OD					0x12U
 /****************gpio pull register*****************/
-#define			GPIO_NOPULL								0x00
-#define			GPIO_PULLUP								0x01
-#define			GPIO_PULLDOWN							0x02
+#define			GPIO_NOPULL								0x00U
+#define			GPIO_PULLUP								0x01U
+#define			GPIO_PULLDOWN							0x02U
 	
 /****************gpio speed register*****************/	
+#define    GPIO_SPEED_LOW							0x00
+#define    GPIO_SPEED_MEDIUM					0x01
+#define    GPIO_SPEED_FAST						0x02
+#define    GPIO_SPEED_VERY_FAST				0x03
 typedef struct
 {
 		_IO	uint32_t MODER; 			//0x00
@@ -50,8 +56,8 @@ typedef struct
 		_IO	uint32_t ODR;					//0x14
 		_IO	uint32_t BSRR;				//0x18
 		_IO	uint32_t LCKR;				//0x1c
-		_IO	uint32_t AFRL;				//0x20
-		_IO	uint32_t AFRH;				//0x24
+		_IO	uint32_t AFR[2];					//0x20
+	//	_IO	uint32_t AFRH;				//0x24
 }GPIO_typeDef;
 
 typedef struct
@@ -69,7 +75,7 @@ typedef enum{
 	GPIO_PIN_SET
 }GPIO_PinState;
 
-void Gpio_Init(GPIO_typeDef * GPIOx, GPIO_InitTypeDef * Gpio_init);
+void Gpio_Init(GPIO_typeDef * GPIOx, GPIO_InitTypeDef * pin_init);
 GPIO_PinState Gpio_Read_Pin(GPIO_typeDef * GPIOx,uint16_t Gpio_Pin);
 void Gpio_Write_Pin(GPIO_typeDef * GPIOx,uint16_t Gpio_Pin,GPIO_PinState _state);
 void Gpio_Toggle_Pin(GPIO_typeDef * GPIOx,uint16_t Gpio_Pin);
